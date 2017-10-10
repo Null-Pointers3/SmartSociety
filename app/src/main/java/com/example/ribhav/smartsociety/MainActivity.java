@@ -3,17 +3,14 @@ package com.example.ribhav.smartsociety;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Loader;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.ribhav.smartsociety.APIMerchant.PaymentDetails;
 import com.example.ribhav.smartsociety.APIMerchant.PaymentLoader;
 import com.example.ribhav.smartsociety.LoginActivities.UserLoginActivity;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements LoaderCallbacks<PaymentDetails>{
     private Button loginAsUser;
