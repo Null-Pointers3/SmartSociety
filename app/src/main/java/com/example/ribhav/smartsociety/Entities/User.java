@@ -3,9 +3,9 @@ package com.example.ribhav.smartsociety.Entities;
 public class User {
     private String userName;
     private String flatNumber;
-    private int pincode;
-    private Society society;
-    private long Contact_No;
+    private String pincode;
+    private String societyname;
+    private String Contact_No;
 
     public String getUserName() {
         return userName;
@@ -23,11 +23,27 @@ public class User {
         this.flatNumber = flatNumber;
     }
 
-    public int getPincode() {
+    public String getPincode() {
         return pincode;
     }
 
-    public void setPincode(int pincode) {
+    public void setPincode(String pincode) {
         this.pincode = pincode;
+    }
+
+    public String getSocietyname() {
+        return societyname;
+    }
+
+    public void setSocietyname(String societyname) {
+        this.societyname = societyname;
+    }
+
+    public String getContact_No() {
+        return Contact_No;
+    }
+
+    public void setContact_No(String contact_No) {
+        Contact_No = contact_No;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.ribhav.smartsociety.Entities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Nitish Kumar on 10-10-2017.
@@ -8,11 +9,11 @@ import java.util.ArrayList;
 
 public class Society {
     private String mSocietyName;
-    private int mPinCode;
-    private ArrayList<User> mMembers;
+    private String mPinCode;
+    public User mMembers;
     private String imageResourceUrl;
 
-    public Society(String societyName, int mPinCode){
+    public Society(String societyName, String mPinCode){
         this.mSocietyName=societyName;
         this.mPinCode=mPinCode;
     }
@@ -21,7 +22,7 @@ public class Society {
         return mSocietyName;
     }
 
-    public int getmPinCode() {
+    public String getmPinCode() {
         return mPinCode;
     }
 }
