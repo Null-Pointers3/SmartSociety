@@ -1,16 +1,18 @@
 package com.example.ribhav.smartsociety.LoginActivities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ribhav.smartsociety.MainActivity;
 import com.example.ribhav.smartsociety.MenuActivity;
 import com.example.ribhav.smartsociety.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -114,6 +116,30 @@ public class UserLoginActivity extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+    public void SignOut() {
+        mAuth.signOut();
+        Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
+        finish();
+        startActivity(intent);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        int itemid = item.getItemId();
+        switch (itemid){
+            case R.id.help: SignOut();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

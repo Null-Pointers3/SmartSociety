@@ -1,8 +1,11 @@
 package com.example.ribhav.smartsociety.LoginActivities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -24,8 +27,6 @@ import java.util.Random;
 public class MerchantActivity extends AppCompatActivity {
 
     public FirebaseAuth mAuth;
-    String userName;
-    String Email;
     public FirebaseUser currentUser;
     TextView EmailId;
     TextView CustomerId;
@@ -185,5 +186,29 @@ public class MerchantActivity extends AppCompatActivity {
                     }
 
                 });
+    }
+
+    public void SignOut() {
+        mAuth.signOut();
+        Intent intent = new Intent(MerchantActivity.this, MainActivity.class);
+        finish();
+        startActivity(intent);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        int itemid = item.getItemId();
+        switch (itemid){
+            case R.id.help: SignOut();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
