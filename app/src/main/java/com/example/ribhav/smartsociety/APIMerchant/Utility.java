@@ -50,6 +50,7 @@ public class Utility {
             payment.setCheckSum(baseJ.getString("checksum"));
             payment.setWebsite(baseJ.getString("website"));
             payment.setmMiD(baseJ.getString("merchantId"));
+            payment.setCustID(baseJ.getString("custId"));
             Log.e(LOG_TAG,baseJ.getString("merchantId"));
 
         } catch (JSONException e) {

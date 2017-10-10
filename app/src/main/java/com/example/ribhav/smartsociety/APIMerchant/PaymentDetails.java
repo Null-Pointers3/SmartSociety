@@ -10,7 +10,7 @@ public class PaymentDetails {
     private String Website;
     private String checkSum;
     private String mMiD;
-
+    private String custID;
 //    public PaymentDetails(String mOrderID, String TXN_AMNT, String Website, String checkSum, String mMiD){
 //        this.checkSum=checkSum;
 //        this.mOrderID=mOrderID;
@@ -57,5 +57,13 @@ public class PaymentDetails {
 
     public String getWebsite() {
         return Website;
+    }
+
+    public String getCustID() {
+        return custID;
+    }
+
+    public void setCustID(String custID) {
+        this.custID = custID;
     }
 }
