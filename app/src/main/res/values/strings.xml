@@ -27,5 +27,7 @@
     <string name="sample_merchant_id_staging">WorldP64425807474247</string>
     <string name="sample_checksum_generation_url">https://pguat.paytm.com/merchant-chksum/ChecksumGenerator</string>
     <string name="sample_checksum_verification_url">https://pguat.paytm.com/merchant-chksum/ValidateChksum</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_user_details">userDetails</string>
 
 </resources>

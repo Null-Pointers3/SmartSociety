@@ -1,14 +1,14 @@
 package com.example.ribhav.smartsociety;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import com.example.ribhav.smartsociety.Adapter.MenuAdapter;
-import com.example.ribhav.smartsociety.LoginActivities.SignedIn;
 import com.example.ribhav.smartsociety.ResourceClasses.MenuItem;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -38,10 +38,27 @@ public class MenuActivity extends AppCompatActivity {
         menuitems.add(new MenuItem(R.drawable.utilities));
         return menuitems;
     }
-    public void SignOut(View view) {
+    public void SignOut() {
         mAuth.signOut();
         Intent intent = new Intent(MenuActivity.this, MainActivity.class);
         finish();
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        int itemid = item.getItemId();
+        switch (itemid){
+            case R.id.help: SignOut();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

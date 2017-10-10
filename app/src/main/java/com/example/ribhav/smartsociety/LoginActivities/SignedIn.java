@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.content.Loader;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ProgressBar;
 
 import com.example.ribhav.smartsociety.APIMerchant.PaymentDetails;
 import com.example.ribhav.smartsociety.APIMerchant.PaymentLoader;
@@ -36,6 +34,7 @@ public class SignedIn extends AppCompatActivity implements LoaderManager.LoaderC
             getLoaderManager().initLoader(1,null,this);
             setContentView(R.layout.activity_signed_in);
             Intent intent = new Intent(SignedIn.this, MenuActivity.class);
+            finish();
             startActivity(intent);
         }
 
