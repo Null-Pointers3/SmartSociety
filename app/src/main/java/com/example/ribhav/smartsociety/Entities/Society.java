@@ -10,6 +10,7 @@ public class Society {
     private String mSocietyName;
     private int mPinCode;
     private ArrayList<User> mMembers;
+    private String imageResourceUrl;
 
     public Society(String societyName, int mPinCode){
         this.mSocietyName=societyName;
