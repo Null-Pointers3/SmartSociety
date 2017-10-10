@@ -12,6 +12,15 @@ public class Society {
     private ArrayList<User> mMembers;
 
     public Society(String societyName, int mPinCode){
+        this.mSocietyName=societyName;
+        this.mPinCode=mPinCode;
+    }
 
+    public String getmSocietyName() {
+        return mSocietyName;
+    }
+
+    public int getmPinCode() {
+        return mPinCode;
     }
 }
