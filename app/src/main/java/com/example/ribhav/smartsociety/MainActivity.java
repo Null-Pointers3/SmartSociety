@@ -5,12 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.ribhav.smartsociety.LoginActivities.UserLoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private Button loginAsUser;
     private Button loginAsSociety;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         loginAsUser=(Button) findViewById(R.id.loginUser);
         loginAsSociety=(Button) findViewById(R.id.loginSociety);
-
         loginAsUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,5 +29,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
+
+
 }
