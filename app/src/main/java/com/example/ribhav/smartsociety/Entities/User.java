@@ -1,8 +1,12 @@
 package com.example.ribhav.smartsociety.Entities;
 
-import android.telephony.PhoneNumberUtils;
+
+
 
 /**
+=======
+/*
+>>>>>>> Ribhav
  * Created by ribhav on 10/10/17.
  */
 
