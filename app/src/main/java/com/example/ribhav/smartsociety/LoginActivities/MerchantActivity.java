@@ -46,17 +46,17 @@ public class MerchantActivity extends AppCompatActivity {
         EmailId = (TextView) findViewById(R.id.cust_email_id);
         EmailId.setText(currentUser.getEmail());
         CustomerId = (TextView) findViewById(R.id.customer_id);
-        CustomerId.setText(MainActivity.paymentElectricity.getCustID());
+        CustomerId.setText(SignedIn.paymentElectricity.getCustID());
         TransactionAmt = (TextView) findViewById(R.id.Transaction_amount);
-        TransactionAmt.setText(MainActivity.paymentElectricity.getTXN_AMNT());
+        TransactionAmt.setText(SignedIn.paymentElectricity.getTXN_AMNT());
         OrderId = (TextView) findViewById(R.id.order_id);
-        OrderId.setText(MainActivity.paymentElectricity.getmOrderID());
+        OrderId.setText(SignedIn.paymentElectricity.getmOrderID());
         MoblieNumber = (TextView) findViewById(R.id.cust_mobile_no);
         MoblieNumber.setText("9958854841");
         IndustryType = (TextView) findViewById(R.id.industry_type_id);
         IndustryType.setText("Retail");
         Website = (TextView) findViewById(R.id.website);
-        Website.setText(MainActivity.paymentElectricity.getWebsite());
+        Website.setText(SignedIn.paymentElectricity.getWebsite());
         Theme = (TextView) findViewById(R.id.theme);
         Theme.setText("merchant");
         Log.d("MerchantActivity",currentUser.getEmail());
@@ -87,13 +87,13 @@ public class MerchantActivity extends AppCompatActivity {
 
         // these are mandatory parameters
 
-        paramMap.put("ORDER_ID", (MainActivity.paymentElectricity.getmOrderID()));
-        paramMap.put("MID", (MainActivity.paymentElectricity.getmMiD()));
-        paramMap.put("CUST_ID", (MainActivity.paymentElectricity.getCustID()));
+        paramMap.put("ORDER_ID", (SignedIn.paymentElectricity.getmOrderID()));
+        paramMap.put("MID", (SignedIn.paymentElectricity.getmMiD()));
+        paramMap.put("CUST_ID", (SignedIn.paymentElectricity.getCustID()));
         paramMap.put("CHANNEL_ID", "WAP");
         paramMap.put("INDUSTRY_TYPE_ID", "Retail");
-        paramMap.put("WEBSITE", (MainActivity.paymentElectricity.getWebsite()));
-        paramMap.put("TXN_AMOUNT", MainActivity.paymentElectricity.getTXN_AMNT());
+        paramMap.put("WEBSITE", (SignedIn.paymentElectricity.getWebsite()));
+        paramMap.put("TXN_AMOUNT", SignedIn.paymentElectricity.getTXN_AMNT());
         paramMap.put("THEME","merchant");
         paramMap.put("EMAIL", currentUser.getEmail());
         paramMap.put("MOBILE_NO", "9958854841");

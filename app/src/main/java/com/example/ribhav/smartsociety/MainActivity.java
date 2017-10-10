@@ -12,12 +12,12 @@ import com.example.ribhav.smartsociety.APIMerchant.PaymentDetails;
 import com.example.ribhav.smartsociety.APIMerchant.PaymentLoader;
 import com.example.ribhav.smartsociety.LoginActivities.UserLoginActivity;
 
-public class MainActivity extends AppCompatActivity implements LoaderCallbacks<PaymentDetails>{
-    public static PaymentDetails paymentElectricity;
+public class MainActivity extends AppCompatActivity{
+
 
     private Button loginAsUser;
     private Button loginAsSociety;
-    private static final String baseUrl="http://172.16.10.160:3000/electricity/kk";
+    public static final String baseUrl="http://172.16.10.157:3000/electricity/kk";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,23 +32,10 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<P
             }
         });
 
-        getLoaderManager().initLoader(1,null,this);
 
     }
 
-    @Override
-    public Loader<PaymentDetails> onCreateLoader(int i, Bundle bundle) {
-        return new PaymentLoader(this,baseUrl);
-    }
 
-    @Override
-    public void onLoadFinished(Loader<PaymentDetails> loader, PaymentDetails paymentDetails) {
-        paymentElectricity=paymentDetails;
-    }
-
-    @Override
-    public void onLoaderReset(Loader<PaymentDetails> loader) {
-   }
 
 
 }
