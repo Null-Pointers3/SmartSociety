@@ -9,5 +9,9 @@ import java.util.ArrayList;
 public class Society {
     private String mSocietyName;
     private int mPinCode;
-    private ArrayList<User>;
+    private ArrayList<User> mMembers;
+
+    public Society(String societyName, int mPinCode){
+
+    }
 }
