@@ -48,7 +48,8 @@
         android:layout_height="80dp"
         android:text="Add image"
         android:gravity="center"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:onClick="loadImage"/>
         </LinearLayout>
 
 </LinearLayout>

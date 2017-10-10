@@ -4,6 +4,7 @@
 
     <usespermission android:name="android.permission.INTERNET" />
     <usespermission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <receiver android:name=".AlarmReceiver"/>
 
     <application
         android:allowBackup="true"
@@ -25,6 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivities.MerchantActivity" />
+        <activity android:name=".MenuActivity"/>
         <activity
             android:name="com.paytm.pgsdk.PaytmPGActivity"
             android:configChanges="keyboardHidden|orientation|keyboard"
