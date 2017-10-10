@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.example.ribhav.smartsociety.APIMerchant.PaymentDetails;
 import com.example.ribhav.smartsociety.APIMerchant.PaymentLoader;
+import com.example.ribhav.smartsociety.LoginActivities.SocietyLoginActivity;
 import com.example.ribhav.smartsociety.LoginActivities.UserLoginActivity;
 
 public class MainActivity extends AppCompatActivity{
@@ -28,6 +29,13 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,UserLoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        loginAsSociety.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,SocietyLoginActivity.class);
                 startActivity(intent);
             }
         });

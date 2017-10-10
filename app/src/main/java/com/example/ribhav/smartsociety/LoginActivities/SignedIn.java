@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import com.example.ribhav.smartsociety.APIMerchant.PaymentDetails;
 import com.example.ribhav.smartsociety.APIMerchant.PaymentLoader;
 import com.example.ribhav.smartsociety.MainActivity;
+import com.example.ribhav.smartsociety.MenuActivity;
 import com.example.ribhav.smartsociety.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -34,7 +35,7 @@ public class SignedIn extends AppCompatActivity implements LoaderManager.LoaderC
 
             getLoaderManager().initLoader(1,null,this);
             setContentView(R.layout.activity_signed_in);
-            Intent intent = new Intent(SignedIn.this, MerchantActivity.class);
+            Intent intent = new Intent(SignedIn.this, MenuActivity.class);
             startActivity(intent);
         }
 
