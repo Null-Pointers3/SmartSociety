@@ -13,10 +13,10 @@ public class Society {
     public User mMembers;
     private String imageResourceUrl;
 
-    public Society(String societyName, String mPinCode, String url){
+    public Society(String societyName, String mPinCode){
         this.mSocietyName=societyName;
         this.mPinCode=mPinCode;
-        this.imageResourceUrl=url;
+
     }
 
     public String getmSocietyName() {
@@ -25,5 +25,13 @@ public class Society {
 
     public String getmPinCode() {
         return mPinCode;
+    }
+
+    public void setImageResourceUrl(String imageResourceUrl) {
+        this.imageResourceUrl = imageResourceUrl;
+    }
+
+    public String getImageResourceUrl() {
+        return imageResourceUrl;
     }
 }

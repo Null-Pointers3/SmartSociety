@@ -1,6 +1,7 @@
 package com.example.ribhav.smartsociety.Entities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -22,6 +25,9 @@ public class societyDetails extends AppCompatActivity {
 
     private static final int RC_PHOTO_PICKER = 2;
     EditText sName;
+    private FirebaseStorage mFirebaseStorage;
+    StorageReference mStorage;
+    Society currentSociety;
     EditText pin;
     ImageView photo;
     @Override
@@ -45,21 +51,19 @@ public class societyDetails extends AppCompatActivity {
     }
 
     private void updateDatabase() {
-        Society currentSociety=returnSociety();
+
         String sName=currentSociety.getmSocietyName();
         FirebaseDatabase database=FirebaseDatabase.getInstance();
-        FirebaseStorage mFirebaseStorage=FirebaseStorage.getInstance();
+
+        mStorage=mFirebaseStorage.getReference("soc_Photos");
         DatabaseReference society=database.getReference().child(sName);
 
         society.push().setValue(currentSociety);
-        DatabaseReference society2=database.getReference().child(sName);
-        DatabaseReference image=database.getReference().child(sName).child("imageId");
-//        photo.setVisibility(View.VISIBLE);
-//        Glide.with(photo.getContext())
-//                .load(image)
-//                .into(photo);
 
-
+        photo.setVisibility(View.VISIBLE);
+        Glide.with(photo.getContext())
+                .load(currentSociety.getImageResourceUrl())
+                .into(photo);
     }
 
     private Society returnSociety() {
@@ -68,7 +72,7 @@ public class societyDetails extends AppCompatActivity {
         photo=(ImageView)findViewById(R.id.photo);
         String socName=sName.getText().toString();
         String sPin=pin.getText().toString();
-        Society currentSoc=new Society(socName,sPin,null);
+        Society currentSoc=new Society(socName,sPin);
         return currentSoc;
     }
 
@@ -76,7 +80,12 @@ public class societyDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_society_details);
+        mFirebaseStorage=FirebaseStorage.getInstance();
+        mStorage=mFirebaseStorage.getReference().child("photo");
+        currentSociety=returnSociety();
+        photo=(ImageView)findViewById(R.id.photo);
     }
+
 
     public void loadImage(View view) {
         Intent intent=new Intent(Intent.ACTION_GET_CONTENT);
@@ -86,4 +95,19 @@ public class societyDetails extends AppCompatActivity {
 
 
     }
-}
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == RC_PHOTO_PICKER && resultCode == RESULT_OK) {
+            Uri selectedImageUri = data.getData();
+            StorageReference photoRef = mStorage.child(selectedImageUri.getLastPathSegment());
+            photoRef.putFile(selectedImageUri).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    @SuppressWarnings("VisibleForTests") Uri downloadURl = taskSnapshot.getDownloadUrl();
+                    currentSociety.setImageResourceUrl(downloadURl.toString());
+
+
+                }
+            });
+        }
+    }}
