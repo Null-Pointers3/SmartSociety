@@ -33,6 +33,10 @@
             android:screenOrientation="portrait" />
         <activity android:name=".Entities.userDetails" />
         <activity android:name=".Entities.societyDetails"></activity>
+
+        <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".LoginActivities.SocietyLoginActivity"></activity>
+
     </application>
 
 </manifest>

@@ -34,6 +34,7 @@ public class SignedIn extends AppCompatActivity implements LoaderManager.LoaderC
             getLoaderManager().initLoader(1,null,this);
             setContentView(R.layout.activity_signed_in);
             Intent intent = new Intent(SignedIn.this, MenuActivity.class);
+            finish();
             startActivity(intent);
         }
 
