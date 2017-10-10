@@ -1,18 +1,15 @@
 package com.example.ribhav.smartsociety.LoginActivities;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.ribhav.smartsociety.MainActivity;
 import com.example.ribhav.smartsociety.MenuActivity;
 import com.example.ribhav.smartsociety.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,22 +18,22 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class UserLoginActivity extends AppCompatActivity {
+public class SocietyLoginActivity extends AppCompatActivity {
     private EditText EmailAdd;
     private EditText Password;
     private Button login;
     private Button SignUp;
     private FirebaseAuth mAuth;
 
-
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_login);
-        EmailAdd=(EditText) findViewById(R.id.emailAddress);
-        Password=(EditText) findViewById(R.id.password);
-        login=(Button) findViewById(R.id.LoginButton);
-        SignUp=(Button) findViewById(R.id.SignupButton);
+        setContentView(R.layout.activity_society_login);
+        EmailAdd=(EditText) findViewById(R.id.emailAddressSociety);
+        Password=(EditText) findViewById(R.id.passwordSociety);
+        login=(Button) findViewById(R.id.LoginButtonSociety);
+        SignUp=(Button) findViewById(R.id.SignupButtonSociety);
         mAuth=FirebaseAuth.getInstance();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +41,7 @@ public class UserLoginActivity extends AppCompatActivity {
                 String email=EmailAdd.getText().toString().trim();
                 String password=Password.getText().toString().trim();
                 signIn(email,password);
-                Intent intent = new Intent(UserLoginActivity.this, MenuActivity.class);
+                Intent intent = new Intent(SocietyLoginActivity.this, MenuActivity.class);
                 finish();
                 startActivity(intent);
             }
@@ -53,8 +50,8 @@ public class UserLoginActivity extends AppCompatActivity {
         SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(UserLoginActivity.this,SignUpActivity.class);
-                intent.putExtra("Society",false);
+                Intent intent=new Intent(SocietyLoginActivity.this,SignUpActivity.class);
+                intent.putExtra("Society",true);
                 startActivity(intent);
             }
         });
@@ -80,14 +77,14 @@ public class UserLoginActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
 
-                            Toast.makeText(UserLoginActivity.this, "Authentication failed.",
+                            Toast.makeText(SocietyLoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
 
                         }
 
                         // [START_EXCLUDE]
                         if (!task.isSuccessful()) {
-                            Toast.makeText(UserLoginActivity.this, "Authentication failed.",
+                            Toast.makeText(SocietyLoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
 
@@ -117,30 +114,6 @@ public class UserLoginActivity extends AppCompatActivity {
         }
 
         return valid;
-    }
-
-    public void SignOut() {
-        mAuth.signOut();
-        Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
-        finish();
-        startActivity(intent);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(android.view.MenuItem item) {
-        int itemid = item.getItemId();
-        switch (itemid){
-            case R.id.help: SignOut();
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 }

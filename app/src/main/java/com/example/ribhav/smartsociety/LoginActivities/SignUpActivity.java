@@ -1,15 +1,16 @@
 package com.example.ribhav.smartsociety.LoginActivities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ribhav.smartsociety.Entities.societyDetails;
 import com.example.ribhav.smartsociety.Entities.userDetails;
 import com.example.ribhav.smartsociety.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -68,9 +69,13 @@ public class SignUpActivity extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(getApplicationContext(),"User Created: "+user.getEmail(),Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(SignUpActivity.this,userDetails.class);
+                            Intent intent1 = new Intent(SignUpActivity.this,userDetails.class);
+                            Intent intent2 = new Intent(SignUpActivity.this,societyDetails.class);
                             finish();
-                            startActivity(intent);
+                            if(getIntent().getExtras().getBoolean("Society"))
+                                startActivity(intent2);
+                            else
+                                startActivity(intent1);
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -79,7 +84,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                         }
 
-                        // ...
+
                     }
                 });
     }
