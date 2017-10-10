@@ -7,9 +7,17 @@
 /build
 /captures
 .externalNativeBuild
+<<<<<<< HEAD
+/.idea/modules.xml
+/.idea/runConfigurations.xml
+/.idea/vcs.xml
+/.idea/misc.xml
+
+=======
 /.idea/misc.xml
 <<<<<<< HEAD
 /.idea/modules.xml
 =======
 /.idea/modules.xml
 >>>>>>> Ribhav
+>>>>>>> Kartik
