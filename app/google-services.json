@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "701749155369-3knu42j2kvcna3od9orgb84hvq4437k0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ribhav.smartsociety",
+            "certificate_hash": "7458285c42b84aa63a8890c13681b7c4c9961ce1"
+          }
+        },
+        {
           "client_id": "701749155369-t9ekm2s2cr1io5aforqbaf7plbl6l2fr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
