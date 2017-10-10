@@ -1,18 +1,5 @@
 package com.example.ribhav.smartsociety.Entities;
 
-<<<<<<< HEAD
-=======
-
-
-
-/**
-=======
-/*
->>>>>>> Ribhav
- * Created by ribhav on 10/10/17.
- */
-
->>>>>>> Nimit
 public class User {
     private String userName;
     private String flatNumber;

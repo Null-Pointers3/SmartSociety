@@ -5,10 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ribhav.smartsociety.MainActivity;
 import com.example.ribhav.smartsociety.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -16,7 +16,6 @@ import com.paytm.pgsdk.PaytmMerchant;
 import com.paytm.pgsdk.PaytmOrder;
 import com.paytm.pgsdk.PaytmPGService;
 import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
-
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +28,13 @@ public class MerchantActivity extends AppCompatActivity {
     String Email;
     public FirebaseUser currentUser;
     TextView EmailId;
+    TextView CustomerId;
+    TextView TransactionAmt;
+    TextView OrderId;
+    TextView MoblieNumber;
+    TextView IndustryType;
+    TextView Website;
+    TextView Theme;
 
 
     @Override
@@ -39,6 +45,20 @@ public class MerchantActivity extends AppCompatActivity {
         currentUser=mAuth.getCurrentUser();
         EmailId = (TextView) findViewById(R.id.cust_email_id);
         EmailId.setText(currentUser.getEmail());
+        CustomerId = (TextView) findViewById(R.id.customer_id);
+        CustomerId.setText(MainActivity.paymentElectricity.getCustID());
+        TransactionAmt = (TextView) findViewById(R.id.Transaction_amount);
+        TransactionAmt.setText(MainActivity.paymentElectricity.getTXN_AMNT());
+        OrderId = (TextView) findViewById(R.id.order_id);
+        OrderId.setText(MainActivity.paymentElectricity.getmOrderID());
+        MoblieNumber = (TextView) findViewById(R.id.cust_mobile_no);
+        MoblieNumber.setText("9958854841");
+        IndustryType = (TextView) findViewById(R.id.industry_type_id);
+        IndustryType.setText("Retail");
+        Website = (TextView) findViewById(R.id.website);
+        Website.setText(MainActivity.paymentElectricity.getWebsite());
+        Theme = (TextView) findViewById(R.id.theme);
+        Theme.setText("merchant");
         Log.d("MerchantActivity",currentUser.getEmail());
 
     }
@@ -56,7 +76,7 @@ public class MerchantActivity extends AppCompatActivity {
         Random r = new Random(System.currentTimeMillis());
         String orderId = "ORDER" + (1 + r.nextInt(2)) * 10000
                 + r.nextInt(10000);
-        EditText orderIdEditText = (EditText) findViewById(R.id.order_id);
+        TextView orderIdEditText = (TextView) findViewById(R.id.order_id);
         orderIdEditText.setText(orderId);
     }
 
@@ -67,16 +87,16 @@ public class MerchantActivity extends AppCompatActivity {
 
         // these are mandatory parameters
 
-        paramMap.put("ORDER_ID", ((TextView) findViewById(R.id.order_id)).getText().toString());
-        paramMap.put("MID", ((TextView) findViewById(R.id.merchant_id)).getText().toString());
-        paramMap.put("CUST_ID", ((TextView) findViewById(R.id.customer_id)).getText().toString());
-        paramMap.put("CHANNEL_ID", ((TextView) findViewById(R.id.channel_id)).getText().toString());
-        paramMap.put("INDUSTRY_TYPE_ID", ((TextView) findViewById(R.id.industry_type_id)).getText().toString());
-        paramMap.put("WEBSITE", ((TextView) findViewById(R.id.website)).getText().toString());
-        paramMap.put("TXN_AMOUNT", ((TextView) findViewById(R.id.transaction_amount)).getText().toString());
-        paramMap.put("THEME", ((TextView) findViewById(R.id.theme)).getText().toString());
+        paramMap.put("ORDER_ID", (MainActivity.paymentElectricity.getmOrderID()));
+        paramMap.put("MID", (MainActivity.paymentElectricity.getmMiD()));
+        paramMap.put("CUST_ID", (MainActivity.paymentElectricity.getCustID()));
+        paramMap.put("CHANNEL_ID", "WAP");
+        paramMap.put("INDUSTRY_TYPE_ID", "Retail");
+        paramMap.put("WEBSITE", (MainActivity.paymentElectricity.getWebsite()));
+        paramMap.put("TXN_AMOUNT", MainActivity.paymentElectricity.getTXN_AMNT());
+        paramMap.put("THEME","merchant");
         paramMap.put("EMAIL", currentUser.getEmail());
-        paramMap.put("MOBILE_NO", ((TextView) findViewById(R.id.cust_mobile_no)).getText().toString());
+        paramMap.put("MOBILE_NO", "9958854841");
 
         PaytmOrder Order = new PaytmOrder(paramMap);
 
