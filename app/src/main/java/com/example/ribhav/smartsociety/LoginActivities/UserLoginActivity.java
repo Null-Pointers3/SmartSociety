@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ribhav.smartsociety.MenuActivity;
 import com.example.ribhav.smartsociety.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -41,6 +42,9 @@ public class UserLoginActivity extends AppCompatActivity {
                 String email=EmailAdd.getText().toString().trim();
                 String password=Password.getText().toString().trim();
                 signIn(email,password);
+                Intent intent = new Intent(UserLoginActivity.this, MenuActivity.class);
+                finish();
+                startActivity(intent);
             }
         });
 

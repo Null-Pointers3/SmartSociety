@@ -17,7 +17,6 @@ import com.paytm.pgsdk.PaytmOrder;
 import com.paytm.pgsdk.PaytmPGService;
 import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
 
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
