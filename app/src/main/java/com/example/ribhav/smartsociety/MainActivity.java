@@ -7,10 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.ribhav.smartsociety.APIMerchant.PaymentDetails;
 import com.example.ribhav.smartsociety.APIMerchant.PaymentLoader;
 import com.example.ribhav.smartsociety.LoginActivities.UserLoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements LoaderCallbacks<PaymentDetails>{
     private Button loginAsUser;
@@ -22,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<P
         setContentView(R.layout.activity_main);
         loginAsUser=(Button) findViewById(R.id.loginUser);
         loginAsSociety=(Button) findViewById(R.id.loginSociety);
-
         loginAsUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<P
                 startActivity(intent);
             }
         });
+
         getLoaderManager().initLoader(1,null,this);
 
     }
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<P
 
     @Override
     public void onLoaderReset(Loader<PaymentDetails> loader) {
+   }
 
-    }
+
 }

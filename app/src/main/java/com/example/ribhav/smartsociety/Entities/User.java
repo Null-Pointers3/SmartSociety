@@ -1,6 +1,12 @@
 package com.example.ribhav.smartsociety.Entities;
 
+
+
+
+/**
+=======
 /*
+>>>>>>> Ribhav
  * Created by ribhav on 10/10/17.
  */
 
@@ -9,6 +15,7 @@ public class User {
     private String flatNumber;
     private int pincode;
     private Society society;
+    private long Contact_No;
 
     public String getUserName() {
         return userName;
