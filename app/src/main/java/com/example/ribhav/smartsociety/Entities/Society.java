@@ -9,5 +9,19 @@ import java.util.ArrayList;
 public class Society {
     private String mSocietyName;
     private int mPinCode;
-    private ArrayList<User>;
+    private ArrayList<User> mMembers;
+    private String imageResourceUrl;
+
+    public Society(String societyName, int mPinCode){
+        this.mSocietyName=societyName;
+        this.mPinCode=mPinCode;
+    }
+
+    public String getmSocietyName() {
+        return mSocietyName;
+    }
+
+    public int getmPinCode() {
+        return mPinCode;
+    }
 }
