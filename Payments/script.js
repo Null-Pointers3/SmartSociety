@@ -7,4 +7,4 @@ app.get('/electricity/:id', function (req, res) {
     console.log('request made at' + req.url);
     res.json(data);
 });
-app.listen(3000, '172.16.10.157');
+app.listen(3000, )
