@@ -27,9 +27,11 @@ public class societyDetails extends AppCompatActivity {
     private static final int RC_PHOTO_PICKER = 2;
     EditText sName;
     private FirebaseStorage mFirebaseStorage;
+    private DatabaseReference society;
     StorageReference mStorage;
     Society currentSociety;
     EditText pin;
+    private String sname;
     ImageView photo;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -53,15 +55,12 @@ public class societyDetails extends AppCompatActivity {
 
     private void updateDatabase() {
 
-        String sName=currentSociety.getmSocietyName();
-        mStorage=mFirebaseStorage.getReference("soc_Photos");
-        DatabaseReference society=database.getReference().child(sName);
+
+
         society.push().setValue(currentSociety);
 
         photo.setVisibility(View.VISIBLE);
-        Glide.with(photo.getContext())
-                .load(currentSociety.getImageResourceUrl())
-                .into(photo);
+
     }
 
     private Society returnSociety() {
@@ -82,6 +81,8 @@ public class societyDetails extends AppCompatActivity {
         mStorage=mFirebaseStorage.getReference().child("photo");
         database=FirebaseDatabase.getInstance();
         currentSociety=returnSociety();
+        sname=currentSociety.getmSocietyName();
+        society=database.getReference().child(sname);
         photo=(ImageView)findViewById(R.id.photo);
     }
 
@@ -91,8 +92,6 @@ public class societyDetails extends AppCompatActivity {
         intent.setType("image/jpeg");
         intent.putExtra(Intent.EXTRA_LOCAL_ONLY,true);
         startActivityForResult(Intent.createChooser(intent,"Complete Action using"),RC_PHOTO_PICKER);
-
-
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -104,7 +103,9 @@ public class societyDetails extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     @SuppressWarnings("VisibleForTests") Uri downloadURl = taskSnapshot.getDownloadUrl();
                     currentSociety.setImageResourceUrl(downloadURl.toString());
-
+                    Glide.with(photo.getContext())
+                            .load(currentSociety.getImageResourceUrl())
+                            .into(photo);
 
                 }
             });
