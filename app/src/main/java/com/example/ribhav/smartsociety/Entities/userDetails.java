@@ -13,6 +13,7 @@ import com.example.ribhav.smartsociety.LoginActivities.UserLoginActivity;
 import com.example.ribhav.smartsociety.MainActivity;
 import com.example.ribhav.smartsociety.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -61,12 +62,14 @@ public class userDetails extends AppCompatActivity {
         pin=(EditText)findViewById(R.id.pinCode);
         SocietyName=(EditText) findViewById(R.id.societyName);
         flat=(EditText)findViewById(R.id.flatNo);
+        FirebaseUser userC=mAuth.getCurrentUser();
         User currentUser=new User();
         currentUser.setFlatNumber(flat.getText().toString());
         currentUser.setPincode(pin.getText().toString());
         currentUser.setSocietyname(SocietyName.getText().toString());
         currentUser.setUserName(name.getText().toString());
         currentUser.setContact_No(contact.getText().toString());
+        currentUser.setEmailId(userC.getEmail());
         return currentUser;
     }
 
