@@ -5,52 +5,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFF9C4"
     tools:context="com.example.ribhav.smartsociety.Entities.societyDetails">
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    >
 
     <TextView
-        android:text="SName"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
+        android:text="Society Name :"
+        android:layout_marginLeft="16dp"
+        android:textSize="25sp"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/socName"
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
     <TextView
-        android:text="Pin Code"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
+        android:text="Pin Code :"
+        android:layout_marginLeft="16dp"
+        android:textSize="25sp"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/socPin"
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp" />
         </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
     <Button
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:text="Add image"
         android:gravity="center"
-        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:background="#FFB300"
+     android:layout_marginLeft="90dp"
+
+        android:textColor="#FFFDE7"
         android:onClick="loadImage"/>
         </LinearLayout>
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

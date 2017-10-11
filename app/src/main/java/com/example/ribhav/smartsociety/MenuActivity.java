@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -51,9 +53,8 @@ public class MenuActivity extends AppCompatActivity {
 
     private ArrayList<MenuItem> getArrayList() {
         ArrayList<MenuItem> menuitems=new ArrayList<>();
-        menuitems.add(new MenuItem(R.drawable.utilities));
-        menuitems.add(new MenuItem(R.drawable.utilities));
-        menuitems.add(new MenuItem(R.drawable.utilities));
+        menuitems.add(new MenuItem("BILL PAYMENT"));
+        menuitems.add(new MenuItem("COMPLAINT"));
         return menuitems;
     }
     public void SignOut() {

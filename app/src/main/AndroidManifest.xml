@@ -13,11 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
+
+        <activity android:name=".MainActivity"
+            android:label="LOGIN"/>
+
+
+
         <activity android:name=".LoginActivities.UserLoginActivity"
             android:label="Login"/>
         <activity android:name=".LoginActivities.SignUpActivity"
             android:label="SignUp"/>
+
         <activity
             android:name=".LoginActivities.SignedIn"
             android:label="@string/title_activity_signed_in">

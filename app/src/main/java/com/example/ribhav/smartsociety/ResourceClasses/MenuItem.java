@@ -5,13 +5,17 @@ package com.example.ribhav.smartsociety.ResourceClasses;
  */
 
 public class MenuItem {
-    private int ImageId;
+    private String Category;
 
-    public MenuItem(int utilities) {
-        this.ImageId=utilities;
+    public MenuItem(String utilities) {
+        this.Category=utilities;
     }
 
-    public int getImageId() {
-        return ImageId;
+    public String getCategory() {
+        return Category;
+    }
+
+    public void setCategory(String category) {
+        Category = category;
     }
 }
