@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.ribhav.smartsociety.R;
 import com.example.ribhav.smartsociety.ResourceClasses.MenuItem;
@@ -33,7 +34,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         @Override
         public void onBindViewHolder(MenuViewHolder holder, int position) {
             MenuItem menuItem=menuItems.get(position);
-            holder.MenuImage.setImageResource(menuItem.getImageId());
+            holder.MenuCategory.setText(menuItem.getCategory());
         }
 
         @Override
@@ -42,10 +43,10 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         }
 
         class MenuViewHolder extends RecyclerView.ViewHolder {
-            private ImageView MenuImage;
+            private TextView MenuCategory;
             public MenuViewHolder(View itemView) {
                 super(itemView);
-                MenuImage=(ImageView) itemView.findViewById(R.id.MenuItemImage);
+                MenuCategory=(TextView) itemView.findViewById(R.id.MenuItemImage);
 
             }
 

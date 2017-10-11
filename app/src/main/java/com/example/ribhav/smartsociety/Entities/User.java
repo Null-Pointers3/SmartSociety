@@ -6,6 +6,7 @@ public class User {
     private String pincode;
     private String societyname;
     private String Contact_No;
+    private String emailId;
 
     public String getUserName() {
         return userName;
@@ -45,5 +46,13 @@ public class User {
 
     public void setContact_No(String contact_No) {
         Contact_No = contact_No;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 }
