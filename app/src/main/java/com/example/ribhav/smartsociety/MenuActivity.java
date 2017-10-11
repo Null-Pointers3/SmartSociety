@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.ImageView;
+import android.view.View;
+
 
 import com.bumptech.glide.Glide;
 import com.example.ribhav.smartsociety.Adapter.MenuAdapter;
+import com.example.ribhav.smartsociety.LoginActivities.MerchantActivity;
 import com.example.ribhav.smartsociety.ResourceClasses.MenuItem;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -23,7 +27,18 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        RecyclerView recyclerView=(RecyclerView) findViewById(R.id.recyclerview);
+        final RecyclerView recyclerView=(RecyclerView) findViewById(R.id.recyclerview);
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+            @Override public void onItemClick(View view, int position) {
+                Intent intent=new Intent(MenuActivity.this, MerchantActivity.class);
+                startActivity(intent);
+            }
+
+            @Override public void onLongItemClick(View view, int position) {
+                // do whatever
+            }
+        })
+        );
         ArrayList<MenuItem> menuItems=getArrayList();
         MenuAdapter  menuadapter=new MenuAdapter(menuItems);
         imageView = (ImageView) findViewById(R.id.img);

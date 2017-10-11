@@ -23,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class societyDetails extends AppCompatActivity {
 
+    private FirebaseDatabase database;
     private static final int RC_PHOTO_PICKER = 2;
     EditText sName;
     private FirebaseStorage mFirebaseStorage;
@@ -53,11 +54,8 @@ public class societyDetails extends AppCompatActivity {
     private void updateDatabase() {
 
         String sName=currentSociety.getmSocietyName();
-        FirebaseDatabase database=FirebaseDatabase.getInstance();
-
         mStorage=mFirebaseStorage.getReference("soc_Photos");
         DatabaseReference society=database.getReference().child(sName);
-
         society.push().setValue(currentSociety);
 
         photo.setVisibility(View.VISIBLE);
@@ -82,6 +80,7 @@ public class societyDetails extends AppCompatActivity {
         setContentView(R.layout.activity_society_details);
         mFirebaseStorage=FirebaseStorage.getInstance();
         mStorage=mFirebaseStorage.getReference().child("photo");
+        database=FirebaseDatabase.getInstance();
         currentSociety=returnSociety();
         photo=(ImageView)findViewById(R.id.photo);
     }
