@@ -10,6 +10,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 import com.example.ribhav.smartsociety.Adapter.MenuAdapter;
 import com.example.ribhav.smartsociety.LoginActivities.MerchantActivity;
 import com.example.ribhav.smartsociety.ResourceClasses.MenuItem;
@@ -19,6 +22,7 @@ import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,8 @@ public class MenuActivity extends AppCompatActivity {
         );
         ArrayList<MenuItem> menuItems=getArrayList();
         MenuAdapter  menuadapter=new MenuAdapter(menuItems);
+        imageView = (ImageView) findViewById(R.id.img);
+        Glide.with(this).load("https://www.e-architect.co.uk/images/jpgs/san_francisco/san_francisco_buildings_am030309_9.jpg").into(imageView);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);

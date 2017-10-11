@@ -9,6 +9,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="80dp">
+
+
         <TextView
             android:text="Name :"
             android:layout_weight="1"
@@ -88,7 +90,6 @@
         android:layout_marginLeft="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
     <EditText
         android:id="@+id/contact"
         android:layout_weight="1"
