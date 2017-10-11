@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF9C4">
+
+    <!--<ProgressBar-->
+        <!--android:id="@+id/progressBar"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"/>-->
+<ScrollView
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="#FFF9C4"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Details"
+                android:textStyle="bold"
+                android:textSize="50sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="80dip"/>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50"
+                        android:text="@string/order_id"
+                        android:id="@+id/order_id"
+                        android:textStyle="bold"
+                        android:textSize="16dip"
+                        android:gravity="right"
+                        android:layout_marginBottom="8dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50"
+                        android:text="@string/customer_id"
+                        android:id="@+id/customer_id"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"
+                        android:textSize="16dip"
+                        android:gravity="right"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:id="@+id/Transaction_amount"
+                        android:text="@string/transaction_amount"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:layout_marginLeft="25dp"
+                        android:gravity="right"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50"
+                        android:text="@string/cust_email_id"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"
+                        android:id="@+id/cust_email_id"
+                        android:textSize="16dip"
+                        android:gravity="right"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50"
+                        android:text="@string/cust_mobile_no"
+                        android:layout_marginBottom="8dp"
+                        android:id="@+id/cust_mobile_no"
+                        android:textStyle="bold"
+                        android:textSize="16dip"
+                        android:gravity="right"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+<!--                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50"
+                        android:text="@string/merchant_id"
+                        android:id="@+id/merchant_id"
+                        android:textStyle="bold"
+                        android:textSize="16dip"
+                        android:gravity="right"/>-->
+
+
+             <!--   </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/channel_id"
+                        android:layout_weight="0.50"
+                        android:text="@string/channel_id"
+                        android:textStyle="bold"
+                        android:textSize="16dip"
+                        android:gravity="right"/>-->
+<!--
+
+                </LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="0.50"
+                        android:id="@+id/industry_type_id"
+                        android:text="@string/industry_type_id"
+                        android:textStyle="bold"
+                        android:textSize="16dip"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="right"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50"
+                        android:id="@+id/website"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/website"
+                        android:textStyle="bold"
+                        android:textSize="16dip"
+                        android:gravity="right"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50"
+                        android:id="@+id/theme"
+                        android:text="@string/theme"
+                        android:layout_marginBottom="8dp"
+                        android:textStyle="bold"
+                        android:textSize="16dip"
+                        android:gravity="right"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:weightSum="1"
+            android:visibility="gone"
+            android:id="@+id/checksum_generation">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:text="@string/checksum_generation_url"
+                android:textStyle="bold"
+                android:textSize="16dip"
+                android:gravity="right"/>
+
+        </LinearLayout>-->
+
+        <!--<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:weightSum="1"
+            android:visibility="gone"
+            android:id="@+id/checksum_verification">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:text="@string/checksum_verification_url"
+                android:textStyle="bold"
+                android:textSize="16dip"
+                android:gravity="right"/>
+
+        </LinearLayout>-->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/start_transaction"
+            android:text="@string/start_transaction"
+            android:background="#FFB300"
+            android:elevation="23dp"
+            android:textColor="#FFFDE7"
+            android:layout_gravity="center"
+            android:onClick="onStartTransaction"
+            android:textSize="16sp"
+            android:layout_marginTop="60dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
+</RelativeLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF9C4"
+    tools:context="com.example.ribhav.smartsociety.LoginActivities.UserLoginActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:gravity="center"
+        android:textSize="50dp"
+        android:layout_marginTop="70dp"
+        android:textColor="#E65100"
+        android:fontFamily="sans-serif-condensed"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-Mail"
+        android:inputType="textWebEmailAddress"
+        android:layout_marginTop="80dp"
+        android:id="@+id/emailAddress"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:id="@+id/password"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:id="@+id/LoginButton"
+            android:layout_weight="1"
+            android:background="#FFB300"
+            android:elevation="23dp"
+            android:textColor="#FFFDE7"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="16dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SIGn UP"
+            android:background="#FFB300"
+            android:elevation="23dp"
+            android:textColor="#FFFDE7"
+            android:id="@+id/SignupButton"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"/>
+    </LinearLayout>
+</LinearLayout>
