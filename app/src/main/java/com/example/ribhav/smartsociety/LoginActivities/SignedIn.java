@@ -1,20 +1,26 @@
 package com.example.ribhav.smartsociety.LoginActivities;
 
-import android.app.LoaderManager;
+import android.content.Context;
 import android.content.Intent;
-import android.content.Loader;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.ribhav.smartsociety.APIMerchant.PaymentDetails;
-import com.example.ribhav.smartsociety.APIMerchant.PaymentLoader;
 import com.example.ribhav.smartsociety.MainActivity;
 import com.example.ribhav.smartsociety.MenuActivity;
 import com.example.ribhav.smartsociety.R;
+import com.example.ribhav.smartsociety.ScheduledJobService;
+import com.firebase.jobdispatcher.Constraint;
+import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import com.firebase.jobdispatcher.GooglePlayDriver;
+import com.firebase.jobdispatcher.Job;
+import com.firebase.jobdispatcher.Lifetime;
+import com.firebase.jobdispatcher.RetryStrategy;
+import com.firebase.jobdispatcher.Trigger;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class SignedIn extends AppCompatActivity implements LoaderManager.LoaderCallbacks<PaymentDetails> {
+public class SignedIn extends AppCompatActivity {
 //    ProgressBar progressBar;
     private FirebaseAuth mAuth;
     public static PaymentDetails paymentElectricity;
@@ -26,36 +32,75 @@ public class SignedIn extends AppCompatActivity implements LoaderManager.LoaderC
 //        progressBar=(ProgressBar)findViewById(R.id.progressBar);
         if (currentUser == null) {
             Intent intent = new Intent(SignedIn.this, MainActivity.class);
-            finish();
+//            finish();
             startActivity(intent);
 
-        }else {
+        } else {
 
-            getLoaderManager().initLoader(1,null,this);
             setContentView(R.layout.activity_signed_in);
             Intent intent = new Intent(SignedIn.this, MenuActivity.class);
-            finish();
+//            finish();
             startActivity(intent);
         }
 
+
+        scheduleJob(this);
+
+    }
+    public static void scheduleJob(Context context) {
+        //creating new firebase job dispatcher
+        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(context));
+        //creating new job and adding it with dispatcher
+        Job job = createJob(dispatcher);
+        dispatcher.mustSchedule(job);
     }
 
+    public static Job createJob(FirebaseJobDispatcher dispatcher){
 
-    @Override
-    public Loader<PaymentDetails> onCreateLoader(int i, Bundle bundle) {
-        return new PaymentLoader(this,MainActivity.baseUrl);
+        Job job = dispatcher.newJobBuilder()
+                //persist the task across boots
+                .setLifetime(Lifetime.FOREVER)
+                //.setLifetime(Lifetime.UNTIL_NEXT_BOOT)
+                //call this service when the criteria are met.
+                .setService(ScheduledJobService.class)
+                //unique id of the task
+                .setTag("UniqueTagForYourJob")
+                //don't overwrite an existing job with the same tag
+                .setReplaceCurrent(false)
+                // We are mentioning that the job is periodic.
+                .setRecurring(true)
+                // Run between 30 - 60 seconds from now.
+                .setTrigger(Trigger.executionWindow(30, 60))
+                // retry with exponential backoff
+                .setRetryStrategy(RetryStrategy.DEFAULT_LINEAR)
+                //.setRetryStrategy(RetryStrategy.DEFAULT_EXPONENTIAL)
+                //Run this job only when the network is available.
+                .setConstraints(Constraint.ON_ANY_NETWORK, Constraint.DEVICE_CHARGING)
+                .build();
+        return job;
     }
 
-    @Override
-    public void onLoadFinished(Loader<PaymentDetails> loader, PaymentDetails paymentDetails) {
-        paymentElectricity=paymentDetails;
-        Intent intent = new Intent(SignedIn.this, MerchantActivity.class);
-        startActivity(intent);
-//        progressBar.setVisibility(View.GONE);
+    public static Job updateJob(FirebaseJobDispatcher dispatcher) {
+        Job newJob = dispatcher.newJobBuilder()
+                //update if any task with the given tag exists.
+                .setReplaceCurrent(true)
+                //Integrate the job you want to start.
+                .setService(ScheduledJobService.class)
+                .setTag("UniqueTagForYourJob")
+                // Run between 30 - 60 seconds from now.
+                .setTrigger(Trigger.executionWindow(30, 60))
+                .build();
+        return newJob;
     }
 
-    @Override
-    public void onLoaderReset(Loader<PaymentDetails> loader) {
+    public void cancelJob(Context context){
+
+        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(context));
+        //Cancel all the jobs for this package
+        dispatcher.cancelAll();
+        // Cancel the job for this tag
+        dispatcher.cancel("UniqueTagForYourJob");
 
     }
 }
+
