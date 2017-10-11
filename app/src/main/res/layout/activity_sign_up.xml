@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF9C4"
     tools:context="com.example.ribhav.smartsociety.LoginActivities.SignUpActivity">
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="SIGN-UP"
+    android:textColor="#E65100"
+    android:fontFamily="sans-serif-condensed"
     android:id="@+id/SignupText"
-    android:textSize="45dp"
+    android:textSize="45sp"
     android:gravity="center"
-    android:layout_marginTop="100dp"/>
+    android:layout_marginTop="70dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,7 +61,9 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="50dp"
+            android:background="#FFB300"
             android:text="Sign UP"
+            android:textColor="#FFFDE7"
             android:id="@+id/SignupButton"
             />
 
