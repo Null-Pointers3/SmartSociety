@@ -7,7 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.ribhav.smartsociety.Adapter.MenuAdapter;
 import com.example.ribhav.smartsociety.ResourceClasses.MenuItem;
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,8 @@ public class MenuActivity extends AppCompatActivity {
         RecyclerView recyclerView=(RecyclerView) findViewById(R.id.recyclerview);
         ArrayList<MenuItem> menuItems=getArrayList();
         MenuAdapter  menuadapter=new MenuAdapter(menuItems);
+        imageView = (ImageView) findViewById(R.id.img);
+        Glide.with(this).load().into(imageView);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
